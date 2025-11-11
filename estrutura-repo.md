@@ -1,6 +1,9 @@
 /Mestrado_RIN_Analysis/   
 |
 ├── 01_data_raw/            # Dados brutos, imutáveis. PDBs, inputs.
+|   ├── example_files/      # Dados de exemplo das ferramentas
+|   |   ├── HufflePlots_example/
+|   |   └── SlytheRINs_example/
 |   ├── g6pc1/
 |   |   ├── 9J7V.pdb
 |   |   ├── 9J7V_H176A.pdb
