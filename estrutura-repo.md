@@ -37,7 +37,9 @@
 ├── 04_results_processed/   # Dados gerados. Resultados e Outputs do fluxo de trabalho
 |   |                       # Estrutura deve espelhar o fluxo.
 |   ├── g6pc1/
-|   |   ├── 01_md_trajectories/
+|   |   ├── 01_trajectories_output/ #files de output de cada ferramenta de md utilizada
+|   |   |   ├── BioEmu/
+|   |   |   └── NMSIM/  
 |   |   ├── 02_rin_graphs/
 |   |   └── 03_analysis_plots/
 |   └── m6a_complex/
