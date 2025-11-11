@@ -40,8 +40,12 @@
 |   |   ├── 01_trajectories_output/ #files de output de cada ferramenta de md utilizada
 |   |   |   ├── BioEmu/
 |   |   |   └── NMSIM/  
-|   |   ├── 02_rin_graphs/
-|   |   └── 03_analysis_plots/
+|   |   ├── 02_md_rin_graphs/
+|   |   |   ├── BioEmu/
+|   |   |   └── NMSIM/  
+|   |   └── 03_plots_and_analysis/
+|   |       ├── HufflePlots/
+|   |       └── SlytheRINs/
 |   └── m6a_complex/
 |       ├── 01_md_trajectories/
 |       └── 02_rin_graphs/
