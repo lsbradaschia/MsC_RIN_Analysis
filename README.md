@@ -8,4 +8,7 @@ Este repositório contém a análise, ferramentas e dados para [Nome da Disserta
 A metodologia segue um pipeline PDB -> Grafos. A descrição completa está em [methodology.md](./methodology.md).
 
 ## 2. Ferramentas EvoMol 
-2 Ferramentas foram desenvolvidas ao longo desse projeto. Informações signitivas quanto às ferramentas diretamente ligadas ào projeto **desenvolvidas pelo nosso laboratório** podem ser encontradas no diretório `/02_src_tools/`
+2 Ferramentas foram desenvolvidas ao longo desse projeto. Informações signitivas quanto às ferramentas diretamente ligadas ào projeto **desenvolvidas pelo nosso laboratório** podem ser encontradas no diretório `/02_src_tools/`, organizado da seguinte forma:
+
+* **[HufflePlots: Protein Molecular Dynamics](./02_src_tools/01_HufflePlots/)**:
+* **[SlytheRINs: Comparative Analysis of RINs from different protein conformations](./02_src_tools/02_SlytheRINs/)**:
