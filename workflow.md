@@ -1,0 +1,1 @@
+# Recebe imagem de Workflow completa de análise, partindo de input de um arquivo .pdb/cif

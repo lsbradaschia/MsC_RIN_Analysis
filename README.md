@@ -5,7 +5,7 @@
 Este repositório contém a análise, ferramentas e dados para [Nome da Dissertação].
 
 ## 1. Metodologia Central
-A metodologia segue um pipeline PDB -> Grafos. A descrição completa está em [methodology.md](./methodology.md).
+A metodologia descreve a workflow padrão de estudo em formato de pipeline, onde tem como input inicial um arquivo PDB, e segue em diferentes vertentes e resultados a partir dele. A descrição completa está em [workflow.md](./workflow.md).
 
 ## 2. Ferramentas EvoMol 
 2 Ferramentas foram desenvolvidas ao longo desse projeto. Informações signitivas quanto às ferramentas diretamente ligadas ào projeto **desenvolvidas pelo nosso laboratório** podem ser encontradas no diretório `/02_src_tools/`, organizado da seguinte forma:
