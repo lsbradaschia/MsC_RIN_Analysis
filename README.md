@@ -1,2 +1,8 @@
-# MsC_RIN_Analysis
-Estruturação e Organização de projetos e ferramentas para compreensão do fluxo de trabalho científico desenvolvido ao longo do mestrado
+# Formato de README como MAPA MESTRE de repositório de fluxo de pesquisa - v.0.1
+
+# Formato gerado pelo Gemini, organizado para utilização no repo MsC_RIN_Analysis
+
+Este repositório contém a análise, ferramentas e dados para [Nome da Dissertação].
+
+## 1. Metodologia Central
+
