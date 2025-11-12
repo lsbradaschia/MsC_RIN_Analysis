@@ -1,0 +1,433 @@
+# Estudos Diversos
+
+## Batata - Proteína simples pra example data do SlytheRINs 
+
+Para a busca de molécula apropriada, será feita uma busca por moléculas pequenas e de cadeia simples. Para busca afunilada, o foco será na '*Glycogen Storage Disease*', e proteínas que apresentam mutações *missense* nos diversos tipos dessa doença. 
+
+***Tipos GSD x QIAGEN***
+
+| Tipo/Nome               | Enzima Afetada                     | Órgãos Afetados                 | Genes Associados (QIAGEN)    |
+| :---------------------: | :--------------------------------: | :-----------------------------: | :--------------------------: |
+| Tipo 0                  | Glycogen synthase                  | Liver                           | GYS1, GYS2                   |
+| Tipo Ia (von Gierke's)  | Glucose-6-phospatase               | Liver                           | G6PC1, ASS1, GAA, NR3C1      |
+| Tipo Ib                 | Microsomal G6P translocase         | Liver                           | FOXP3, SLC37A4               |
+| Tipo Ic                 | Microsonal Pi transporter          | Liver                           | SLC37A4                      |
+| Tipo II (Pompe's)       | Lysosomal glucosidase              | Skeletal/Cardiac muscle         | GAA, IGF2R, M6PR, UCGC **     |
+| Tipo IIIa               | Debranching enzyme                 | Liver, skeletal/cardiac muscle  | AGL                          |
+| Tipo IIIb               | Liver debranching enzyme           | Liver                           | AGL                          |
+| Tipo IV (Andersen's)    | Branching enzyme                   | Liver/Skeletal muscle           | GAA, GBE1                    | 
+| Tipo V (McArdle's)      | Muscle phosporylase                | Skeletal muscle                 | Apenas fármacos associados***|
+| Tipo VI (Hers's)        | Liver phosporylase                 | Liver                           | PYGL                         |
+| Tipo VII (Tarui's)      | Muscle PFK-1                       | Muscle, erythrocytes            | PFKM, Phosphofructokinase    |
+| Tipo VIb, VIII or IX    | Phosporylase kinase                | Liver, erythrocytes, muscle     | PHKA1, PHKA2, PHKB, PHKG2    |
+| Tipo XI (Fanconi-Bickel | Glucose transporter (GLUT2)        | Liver                           | LDHA                         |
+
+** Mais de 60 moléculas associadas à tipo II (Pompe's) pela QIAGEN. Todas as moléculas e filtragem vou fazer a frente.
+
+  
+*** Buscar na literatura se existem associações de genes ao tipo V.
+
+### Busca de Moléculas Associadas usando QIAGEN
+
+Pra curadoria e testagem do Software, vou usar a QIAGEN IPA pra curagem de genes associados pra cada um dos tipos de GSD de interesse. O software da QIAGEN tem uma aba específica de '*Diseases and Functions*' onde posso procurar diretamente pela GSD do tipo desejado, e moléculas associadas. 
+
+---
+
+### GSD Ia 
+Associada ao mal funcionamento de uma **sub-unidade** da G6P codificada pelo gene **G6PC1**. A seguinte [tabela](SlytheRINs/Papers/sup-table2.pdf) retirada de uma revisão indicam muitas variantes nessa sub-unidade. 
+
+#### G6PC1 - Unidade catalítica 1 da Glucose-6-Fosfatase
+
+- UNIPROT: [P35575](https://www.uniprot.org/uniprotkb/P35575/entry)
+- TAMANHO: 357 AA
+- OMIM: [232200](https://www.omim.org/entry/232200); [613742](https://www.omim.org/entry/613742?search=gsd1a&highlight=gsd1a)
+- ClinVar: [613742[MIM]](https://www.ncbi.nlm.nih.gov/clinvar/?term=613742[MIM])
+- PDB: [97JV](https://www.rcsb.org/structure/9J7V)
+- PDB COM MUTAÇÃO MISSENSE H176A: [9J7U](https://www.rcsb.org/structure/9J7U)
+  - Recentemente submetida (2025). [https://www.pnas.org/doi/10.1073/pnas.2418316122]
+- AlphaFoldDB: [AF-P35575-F1-v4](https://alphafold.ebi.ac.uk/entry/P35575)
+
+**NOTA:** Baixa Confiança **(pLDDT)** nos últimos 5 aa da estrutura gerada pelo AF (que são os 5 aa faltantes das estruturas encontradas no PDB). 
+
+ 
+***NOTA:*** Existe uma divergencia entre o número de aa existentes na versão final da subunidade. UniProt não indica nenhum ponto de clivagem (nem mesmo da posição 1), enquanto os arquivos PDB possuem 352 aa, onde os faltantes são do N-terminal. Vou usar tanto o arquivo pdb nativo quanto o modelado do **AlphaFold** para os testes.
+
+---
+
+Selecionei 3 variantes que possuem os maiores números de publicação a respeito:
+- 	**[VAR_005239/p.Arg84Cys](https://web.expasy.org/variant_pages/VAR_005239.html#) (12 Publicações)**
+    - [rs1801175](https://www.ncbi.nlm.nih.gov/snp/rs1801175)
+    - [Patogênica](https://www.ncbi.nlm.nih.gov/clinvar?term=((2749251[AlleleID])OR(27037[AlleleID])))
+    - [Ensembl](http://www.ensembl.org/Homo_sapiens/Variation/Explore?r=17:42903447-42904447;v=rs1801175;vdb=variation;vf=959569854)
+ **Nota:** Variante mais comum entre judeus com frequência de 1.4% da população Ashkenazi judaica. 
+      
+-   **[VAR_005246/Gly188Arg](https://web.expasy.org/variant_pages/VAR_005246.html) (5 Publicações)**
+    - [rs80356482](https://www.ncbi.nlm.nih.gov/snp/rs80356482)
+    - [Patogênica](https://www.ncbi.nlm.nih.gov/clinvar?term=((211810[AlleleID])OR(27047[AlleleID])))
+    - [Ensembl](http://www.ensembl.org/Homo_sapiens/Variation/Explore?r=17:42908918-42909918;v=rs80356482;vdb=variation;vf=960112920)
+ **Nota:** c.562G>C (p.Gly188Arg). 1 of 3 variants that comprise 21% of pathogenic variants in individuals of European ancestry. (conforme escrito na seguinte [tabela]()).
+      
+-   **[VAR_005237](https://web.expasy.org/variant_pages/VAR_005237.html) (4 Publicações)**
+    - [rs104894565](https://www.ncbi.nlm.nih.gov/snp/rs104894565)
+    - [Patogênica](https://www.ncbi.nlm.nih.gov/clinvar/variation/12004/?oq=((27043[AlleleID]))&m=NM_000151.4(G6PC1):c.113A%3ET%20(p.Asp38Val))
+    - [Ensembl](https://www.ncbi.nlm.nih.gov/clinvar/variation/12004/?oq=((27043[AlleleID]))&m=NM_000151.4(G6PC1):c.113A%3ET%20(p.Asp38Val))
+
+Variante que possui PDB (9J7U): 
+
+- 
+ 
+
+Outras que podem ser interessantes considerando a seguinte [tabela]() são: 
+1. c.1039C>T **(p.Gln347Ter)**. 1 of 3 variants that comprise 21% of pathogenic variants in individuals of European ancestry.
+
+---
+
+#### NMSIM PDB 9J7V
+[LINK 97JV NATIVA](https://cpclab.uni-duesseldorf.de/nmsim/results/7mSURtgxwdyM4rb/)
+
+***Seleção de Melhor Modelo de AlphaFold de estrutura 97JV com mutação missense R83C com RevelioPlots***
+fold_r83c_9j7v_model_0.cif
+
+[LINK 9J7V VAR_005239](https://cpclab.uni-duesseldorf.de/nmsim/results/SLyyhdWE1YNTCUd/)
+
+***Seleção Melhor Estrutura AF de 97JV com mutação missense G188R com RevelioPlots***
+fold_g188r_9j7v_model_0.cif
+
+[LINK 9J7V_VAR005246/GLY188ARG](https://cpclab.uni-duesseldorf.de/nmsim/results/LwhkskQP32aE6kS/)
+
+***Ambas sem numeração em MODEL***
+
+#### NMSIM PDB 9J7U - Mutação Missense H176A
+[LINK 9J7U](https://cpclab.uni-duesseldorf.de/nmsim/results/DQimODF5ZGqOrKI/)
+
+#### NMSIM AF-P35575-F1-v4 (Análise com estrutura AlphaFold)
+
+[LINK P35575 NATIVA](https://cpclab.uni-duesseldorf.de/nmsim/results/nlTRgLQvWOFeI/)
+
+****Seleção de Melhor Modelo de AlphaFold de estrutura predita P35575 com mutação missense R83C com RevelioPlotss***
+fold_p35575_r83c_model_0.cif
+
+[LINK P35575 VAR_005239](https://cpclab.uni-duesseldorf.de/nmsim/results/glWQPtWqgWX9czi/)
+
+****Seleção de Melhor Modelo de AlphaFold de estrutura predita P35575 com mutação missense G188R com RevelioPlots***
+fold_p35575_g188r_model_0.cif
+
+[LINK P35575_VAR005246/GLY188ARG](https://cpclab.uni-duesseldorf.de/nmsim/results/Ie5ZF79YvFzxBEe/)
+
+
+**NOTA1:** Todos os arquivos de estrutura em formato `.cif` foram formatados para `.pdb` utilizando o **PyMol**. 
+
+---
+### HufflePlots e SlytheRINs com NMSIM
+
+(16/09/2025) - todas as moléculas acima com trajetória no NMSIM e já com informações de Nós e Arestas. 
+
+### Script Python para .csv concatenando RMSD e RMSF para plotagem no [HufflePlots](https://protplots.streamlit.app/)
+
+#### O script utilizado com todas as moléculas de G6PC1 pode ser encontrado no seguinte [notebook](https://colab.research.google.com/drive/1Zei5wjCCmyEt5zComs4C18PR3lzTgWhG#scrollTo=Y-PtDA7LYMBM) do Colab.
+
+```python
+
+#Bibliotecas
+import pandas as pd
+
+# Lista com arquivos '.txt' correspondentes a RMSD e RMSF
+## Substitua pelos seus próprios arquivos, ou posteriormente modificar o código para ler de um diretório +metadado pra nomenclatura
+### RMSD
+files_rmsd = [
+    ('/content/exemplo_rmsdtostart.txt', 'NOMEX_WT'), #WT de 'wild-type' form (ex: '9J7V_WT')
+    ('/content/exemplo_mutação_rmsdtostart.txt', 'NOMEX_XXXX' ), #Indico colocar a nomenclatura simplicada da mutação (ex: '9J7V_R83C')
+]
+
+### RMSF
+files_rmsf = [
+    ('/content/exemplo_rmsfresidue.txt', 'NOMEX_WT'),
+    ('/content/exemplo_mutação_rmsfresidue.txt', 'NOMEX_XXXX'),
+]
+
+
+#RMSD
+# montagem de dataframe concatenando informações de RMSD de diferentes proteínas gerado pelo NMSIM
+rmsd = pd.read_csv(files_rmsd[0][0], sep=r'\s+', header=None, names=['Model', files_rmsd[0][1]])
+
+# Merge
+for file_name, source in files_rmsd[1:]:
+    temp_rmsd = pd.read_csv(file_name, sep=r'\s+', header=None, names=['Model', source])
+    rmsd = rmsd.merge(temp_rmsd, on='Model', how='outer')
+
+
+#Salva o df pra csv
+rmsd.to_csv('RMSD-G6PC1_A83C.csv', index=False)
+
+#RMSF
+# montagem de dataframe concatenando informações de RMSF de diferentes proteínas gerado pelo NMSIM
+rmsf = pd.read_csv(files_rmsf[0][0], sep=r'\s+', header=None, names=['Model', files_rmsf[0][1]])
+
+#merge
+for file_name, source in files_rmsf[1:]:
+    temp_rmsf = pd.read_csv(file_name, sep=r'\s+', header=None, names=['Model', source])
+    rmsf = rmsf.merge(temp_rmsf, on='Model', how='outer')
+
+#Salva o df pra csv
+rmsf.to_csv('RMSF-G6PC1_A83C.csv', index=False)
+
+```
+
+### Shell Script para Numeração Automática de "MODEL" em arquivos PDB
+```bash
+awk 'BEGIN{c=1} /^MODEL/ {printf "MODEL     %4d\n", c++} !/^MODEL/ {print}' 9J7V_trajectory.pdb > 9J7V_teste.pdb
+
+```
+#### Checagem e unzip de arquivo PDB de trajetória em terminal Linux
+```bash
+#Primeiro descompactar usando gunzip
+gunzip -k 9J7V_trajectory.pdb.gz
+
+#Contagem de strings 'MODEL' presentes no arquivo (pro NMSIM como utilizamos, deve ser 500)
+grep -c "MODEL" 9J7V_trajectory.pdb.gz
+
+#Averiguar se o string "MODEL" está devidamente numerado
+##Esse comando, por default, lhe devolve a linha onde o string "MODEL" se encontra.        
+grep "MODEL" 9J7V_trajectory.pdb.gz
+
+````
+**NOTA:** O parâmetro -k cria um novo arquivo descompactado, mas mantém o antigo intacto. 
+
+
+Quando devidamente numerado, os números aparecerão ao lado do string "MODEL"
+```bash
+#Exemplo de output de .pdb devidamente numerado
+grep "MODEL" 9J7V_teste.pdb
+MODEL        1
+MODEL        2
+MODEL        3
+MODEL        4
+MODEL        5
+MODEL        6
+MODEL        7
+MODEL        8
+MODEL        9
+MODEL       10
+
+```
+
+
+
+**Exemplo de output .pdb sem numeração***
+
+```
+MODEL
+MODEL
+MODEL
+MODEL
+MODEL
+MODEL
+MODEL
+MODEL
+MODEL
+MODEL
+MODEL
+```
+### Pipeline de Pré-processamento e Análise de Dados do NMSIM e BioEmu (futuramente GROMACS, que vai ser bem parecido com o do BioEmu, com algumas pequenas alterações em alguns parâmetros 
+
+Eu vou inserir os links de cada um dos executáveis aqui assim que eles estiverem certinhos. Eles estão em um diretório aqui nesse repositório, mas fazendo algumas alterações. Abaixo fica a ordenação das ***ETAPAS DE PROCESSAMENTO*** e comandos associados:
+
+```bash
+
+# 1) MD data (NMSIM/BioEmu/Gromacs)
+## input: PDB/CIF de proteína query. Pré-processamento diverge dependendo da ferramenta utilizada.
+## OUTPUT: I) Arquivo de trajetória (.pdb, .xtc, .gro, ...);
+##         II) Arquivo de Topologia (.pdb, .gro., .topol.top, ...)
+
+
+# 2) RMSD/RMSF ""bruto"" - sem correções de pré-processamento GROMACS
+## NMSIM gera automaticamente cálculo RMSD/RMSF, então não é obrigatória o cálculo pelo GROMACS.
+### Cálculo de RMSD (BioEmu/Gromacs):
+gms rms -s [$TOPOLOGIA] -f [$TRAJETORIA] -o [OUTPUT]
+
+#SELEÇÃO 'GROUP FOR OUTPUT' E 'SQUARE FIT' PRA RMSD: 4('BACKBONE')
+
+
+### Cálculo de RMSF:
+gmx rmsf -s [$TOPOLOGIA] -f [$TRAJETORIA] -o [OUTPUT] -res
+
+#SELEÇÃO 'GROUP FOR OUTPUT' PARA RMSF: '4'('BACKBONE)
+#NOTA: o parâmetro '-res' é essencial para o cálculo RMSF, já que ele é que garante que o cálculo seja feito considerando individualmente cada um dos resíduos da proteína. Sem -res, o cálculo é feito de forma geral para toda a proteína
+
+# 2.5) CORREÇÃO PERIÓDICA DE PRÉ-PROCESSAMENTO - ANTERIOR À RMSD/RMSF, quando realizada
+## Averiguando a necessidade da mesma para o NMSIM (29/09/2025)
+
+### Correção de pré-processamento:
+gmx trjconv -s [$TOPOLOGIA] -f [$TRAJETORIA] -o [$OUTPUT].xtc -pcb whole -center #BioEmu
+
+gmx trjconv -s [$TOPOLOGIA] -f [$TRAJETORIA] -o [$OUTPUT].xtc -pcb mol -center #Gromacs
+
+#SELEÇÃO DE '1'('PROTEIN') para o grupo a ser CENTRALIZADO pelo parâmetro (-center); e SELEÇÃO '0'('SYSTEM') para output.
+## Seleções baseadas em ANÁLISE FOCADA NA PROTEÍNA, ALTERÁVEL EM CONDIÇÕES DE ANÁLISE DE LIGANTES.
+
+###RMSD e RMSF seguem com mesmo comando anterior, com a diferença de input de $TRAJETORIA sendo o $OUTPUT do pré-processamento.
+
+# 3) Análise de Compactividade (Rg)
+
+## Cálculo do RAIO DE GIRAÇÃO DA PROTÉINA. Captura a estabilidade do enovelamento/fold da proteína ao longo da trajetória. Rg ESTÁVEL indica proteína com fold estável, enquanto VALORES INSTÁVEIS podem indicar DESENOVELAMENTO da proteína. 
+## Comando é o mesmo para ambas as condições (com ou sem pré-processamento), alterando apenas o input [-f] de trajetória. 
+gmx gyrate -s [$TOPOLOGIA] -f [$TRAJETORIA] -o [$OUTPUT].xvg
+
+#SELEÇÃO DE GRUPO '('Protein'), para análise do fold da PROTEÍNA DE INTERESSE. 
+
+# 4) CONVERSÃO DE .XTC ($TRAJETORIA) PARA .PDB - para input do RING
+
+## Comando é o mesmo para ambos com ou sem pré-processamento, alteração apenas no input [-f] de trajetória de interesse.
+## NOTA: Como é o mesmo comando, e o executável de conversão será junto com o de execução do RING, CASO ESTEJA FAZENDO A ANÁLISE DE AMBOS (COM E SEM PRÉ-PROCESSAMENTO), INDIQUE A DIFERENÇA ENTRE OS MESMOS NA NOMENCLATURA DOS ARQUIVOS NO INÍCIO DO EXECUTÁVEL, pra evitar confusão posterior.
+gmx trjconv -s [$TOPOLOGIA] -f [$TRAJETORIA] -o [$OUTPUT].pdb
+
+#SELEÇÃO DO GRUPO 1('PROTEIN'), COMO GARANTIA DE SELEÇÃO DA PROTEÍNA DE INTERESSE EM CASO DE EXISTENCIA DE LIGANTE. Apenas a proteína de interesse terá sua trajetória convertida para pdb
+
+# 5) EXECUÇÃO DA FERRAMENTA RING
+## LEIA A NOTA DA ETAPA 4!!
+
+## Cria um diretório DENTRO DO ATUAL para o output, indicado pelo $PREFIXO de entrada.
+./ mkdir [$PREFIXO_SAIDA]_ring
+
+## Execução da ferramenta
+ring -i [$TRAJETORIA].pdb --all_edges --all_models --out_dir [$PREFIXO_SAIDA]_ring  
+
+```
+
+### Tornando um script gerado em Windows executável em Linux (erro de conversão comum e chato pra dedeu)
+
+```bash
+# Já no terminal, dentro do diretório com o seu arquivo executável dentro:
+
+sed -i -r 's/\r$//' seuscript.sh
+#Em tese, isso tira os erros de conversão de passagem de arquivo de Windows pra Linux.
+
+```
+
+**Tornando executável e execução geral de script**
+```bash
+#No diretório onde se encontra o executável de interesse:
+## 1) Torne executável com chmod +x
+chmod +x seuscript.sh
+
+## 2) Execute seu arquivo .sh:
+### DENTRO DO DIRETÓRIO CONTENDO ARQUIVOS DE ENTRADA
+./executável.sh argumento1 argumento2
+
+#Cada executável tem seu próprio grupo de argumentos (E ORDEM!!), além de REQUISITOS para que possa ser utilizado. Indico sempre abrirem e lerem o arquivo .sh para identificar o que precisa. 
+
+```
+
+---
+
+***ANOTAÇÕES GERAIS ABAIXO***
+---
+### Busca de Moléculas Associadas por busca bibliográfica
+
+Busca por artigos científicos levaram a 3 artigos de revisão sobre GSD, onde informações quanto a localização do gene, frequência de variantes, e principais moléculas relacionadas a cada tipo da doença podem ser facilmente identificados a partir das tabelas. 
+
+**[Glycogen Storage Disease](https://doi.org/10.1038/s41572-023-00456-z)**
+- [Clinical Features of GSDs](SlytheRINs/Papers/sup-table1.pdf)
+- [Epidemology of GSDs](SlytheRINs/Papers/sup-table2.pdf)
+
+---
+**[Glycogen Storage Diseases: an update](https://doi.org/10.3748/wjg.v29.i25.3932)**
+- [Overview of GSDs](SlytheRINs/Papers/gene-loc.pdf)
+    - Informação sobre localização do gene
+**Trechos de Relevância**
+- ***GSD-IX; PHK deficiency***
+    - PHK is a heterotetramer composed of **4 different subunits (α, β, γ, and δ)**. Each subunit is **encoded by different genes** that are located on different chromosomes and differentially expressed in a variety of tissues. ***α and β subunits have regulatory functions, the γ subunit contains the catalytic site, and δ is a calmodulin protein***.
+    - α subunit: PHKA1(muscle) and PHKA2(liver) on the X choromossome.
+    - γ subunit: PHKG1(muscle) and PHKG2(liver).
+    -  β subunit: PHKB
+  - GSD-IX Classification:
+      - According to gene: *X-linked form (GSD-IXa or X-linked glycogenosis)*
+      - According to autossomal recessive forms: GSD-IXb and GSD-IXc 
+
+---
+ **[Glycogen Metabolism and glycogen Storage diseases](http://dx.doi.org/10.21037/atm.2018.10.59)**
+- [Characteristics of Inborn errors of glycogen metabolism](SlytheRINs/Papers/tabela-frequencia.pdf)
+    - Informação sobre frequência de cada tipo da doença (quando existente)
+**Trechos de relevância**
+- GSD0a
+    - liver glycogen synthase enzyme deficiency with impaired ability to incorporate UDP-glucose onto glycogen strands and elongate it within the liver. GSD0a is an **autosomal recessive disorder caused by a mutation in the GYS2 gene located at 12p12.2 that codes for the hepatic isoform of glycogen synthase**.
+- GSD1a (Von Gierke)
+    - Glucose-6-Phosphatase. Deficiency results from impaired ability of the hydrolase **subunit of G6Pase**, also known as G6Pase-α to hydrolyze G6P, leading to impaired function of G6Pase in removing the phosphate group from glucose-6-phosphate (G6P).
+    - G6Pase-α is necessary to convert fructose and galactose into glucose and is expressed in the liver, kidney, and intestines.
+    - GSD1a mode of inheritance is autosomal recessive; with **mutations in the G6PC gene on chromosome 17p21.31 encoding α-glucose-6-phosphatase (G6Pase-α)
+enzyme**.
+    - GSD1 incidence is about 1 in 100,000 with GSD1a accounting for 80% of diagnosis. Within the Ashkenazi Jewish population, the suggested incidence of GSD1a is 1 in 20,000.
+- GSD1b
+    - GSD1b has autosomal recessive inheritance, with 92 different reported with 31 confirmed as pathogenic mutations in SLC37A4 gene on chromosome 11q23, encoding glucose-6-phosphate translocase (G6PT) enzyme (GDE); and no apparent genotype-phenotype relationship.
+    - G6PT enzyme is a transmembrane protein found within the endoplasmic reticulum and functions to move G6P into the endoplasmic reticulum. G6Pase-α and G6PT together as the G6Pase complex maintains glucose homeostasis.
+
+- GSD 6
+    - Hers disease or liver phosphorylase enzyme deficiency, is a glycogenolysis defect. Diagnostic confirmation includes molecular analysis of **PYGL** gene.
+- GSD9a1 e GSD9a2
+    - impaired phosphorylase kinase activity in the liver or erythrocyte (GSD9a1) or only liver (GSD9a2). Most common of all GSD9
+    - X-linked inheritance with mutations in the **PHKA2** gene on chromosome Xp22.13 that encodes liver phosphorylase kinase.
+- GSD9c
+    - Impaired **gamma unit of phosphorylase kinase enzyme** function in liver and testis.
+    - Because the gamma subunit contains the catalytic site of the enzyme, GSD9C typically has a more severe phenotype.
+    - Autosomal recessive disorder caused by **mutations of the PHKG2** gene which encodes the **gamma subunit of phosphorylase kinase** on chromosome
+16p11.2
+
+- GSD9b
+    - Also known as phosphorylase kinase deficiency of liver and muscle. An autosomal recessive disorder caused by **mutations of β subunit of PHKB** gene on chromosome 16q12.1
+
+---
+
+### Candidatas: 
+Considerando as Candidatas/Indicações que o professor deu baseadas no Lehninger: 
+- Proteínas da *Via Glicogênica*;
+- Glicogênio Sintase;
+- Fosforilases;
+- Glucoquinases/Glucokinase (Síndrome mud2);
+- G6P/G6pase
+- Fatores de Transcrição;
+- Associadas à Glycogen Storage Disease (GSD);
+- Monômeros (Cadeia simples de proteína complexa)
+
+Vou primeiramente considerar os pontos acima e buscar a partir da busca bibliográfica anomalias já associadas à **subunidades**, para maior chance de moléculas pequenas e de cadeia única para a pesquisa já antes confirmadas ligadas a doença. Caso necessário, buscarei por outras moléculas seguindo a seguinte ordem:
+
+1. Associação direta com a síntese de Glicogênio (e tipos de GSD associadas);
+2. Associada a anomalia no funcionamento de fosforilases(e GSDs associadas);
+3. Glucoquinases;
+4. Frequência de GSD predominante
+
+### GSD com deficiência em subunidades associadas a doença
+- ***GSD1a (Von Gierke) - mais frequente***
+    - Glucose-6-Phosphatase. Deficiency results from impaired ability of the hydrolase **subunit of G6Pase**, also known as G6Pase-α to hydrolyze G6P, leading to impaired function of G6Pase in removing the phosphate group from glucose-6-phosphate (G6P).
+    - GSD1a mode of inheritance is autosomal recessive; with **mutations in the G6PC1 gene on chromosome 17p21.31 encoding α-glucose-6-phosphatase (G6Pase-α)
+enzyme**.
+    - **G6PC1**, ASS1, GAA, NR3C1 (QIAGEN)
+- ***GSD9c***
+    - Impaired **gamma unit of phosphorylase kinase enzyme** function in liver and testis.
+    - Because the gamma subunit contains the catalytic site of the enzyme, GSD9C typically has a more severe phenotype.
+    - Autosomal recessive disorder caused by **mutations of the PHKG2** gene which encodes the **gamma subunit of phosphorylase kinase** on chromosome
+16p11.2
+    - PHKA1, PHKA2, PHKB, PHKG2 (QIAGEN)
+***- GSD9b***
+    - Also known as phosphorylase kinase deficiency of liver and muscle. An autosomal recessive disorder caused by **mutations of β subunit of PHKB** gene on chromosome 16q12.1
+
+- ***GSD7 (Tarui Disease)***
+    - Deficient muscle **subunit of phosphofructokinase (PFK) enzyme**.
+    - GSD9D is an X-linked recessive disorder caused by **mutations of the PHKA1 gene** which **encodes the alpha subunit** of muscle phosphorylase kinase on chromosome Xq13.1.
+    - The overall prevalence of GSD9 is estimated to be 1 in 100,000.
+
+---
+
+### GSD IX - Fosforilase Quinase (PHK) 
+
+GSD IX pode ser de diferentes subtipos, todos associados às diferentes **subunidades** da PHK. Cada uma das 4 subunidades da PHK é codificada por um gene diferentes, localizado em diferentes cromossomos. As subunidades α e γ possuem diferentes isoformas dependendo da sua área de atuação (rins ou músculos). Subunidades α e β tem função regulatória, γ é a subunidade catalítica e δ é uma calmodulina (sinalizadora). 
+
+    - α : PHKA1(muscle) and PHKA2(liver) on the X choromossome. `Tarui Disease/GSD VII/ GSD IXa`
+    - γ : PHKG1(muscle) and PHKG2(liver). `GSD IXc`
+    - β: PHKB. `GSD IXb`
+
+
+   
+
+- Anotei previamente GSD0, IV e XV diretamente associadas. Revisar nos artigos e IPA para seguir com candidatas. 
+
+
