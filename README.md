@@ -4,6 +4,21 @@
 
 Este repositório contém a análise, ferramentas e dados para [Nome da Dissertação].
 
+## Estrutura e Navegação 
+
+* **`README.md` (este arquivo)**: 
+    * Mapa central do fluxo de pesquisa, direciona aos diferentes folders que compõem o projeto.
+    * **Conteúdo:** Linka e aponta todos os *principais folders*, ferramentas e estudos de caso associados a pesquisa central.
+
+* **Arquivos `*-protocol.md` (Ex: G6PC1_protocol.md):**
+    * Diário de bordo (logbook) específico para um tópico.
+    * **Conteúdo:** Detalha e linka *todos* os folders e arquivos associados ào tópico específico (seja uma ferramenta ou estudo de caso)
+
+* **Arquivos `*-study.md` (Ex: G6PC1_study.md):**
+    * Anotações e Estudo Bibliográfico detalhado de um tópico específico. Referências Bibliográficas associadas/linkadas nesse arquivo.
+    * **Conteúdo:** Fluxo de Estudo e Anotações completo (bruto) de um tópico específico (seja uma ferramenta ou estudo de caso).
+
+
 ## 1. Metodologia Central
 A metodologia descreve a workflow padrão de estudo em formato de pipeline, onde tem como input inicial um arquivo PDB, e segue em diferentes vertentes e resultados a partir dele. A descrição completa está em [workflow.md](./workflow.md).
 
