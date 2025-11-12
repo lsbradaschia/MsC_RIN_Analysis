@@ -1,3 +1,5 @@
+```bash
+
 /Mestrado_RIN_Analysis/   
 |
 ├── 01_data_raw/            # Dados brutos, imutáveis. PDBs, inputs.
@@ -58,3 +60,5 @@
     ├── methodology.md      # Descrição do pipeline (PDB -> Grafo -> Análise)
     ├── g6pc1_study.md      # Diário de bordo da G6PC1 (o que falhou, o que funcionou)
     └── m6a_study.md        # Diário de bordo do M6A
+
+```
