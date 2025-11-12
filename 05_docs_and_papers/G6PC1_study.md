@@ -1,4 +1,4 @@
-# Estudos Diversos
+# Anotações e Observações de Estudo relacionados a G6PC1
 
 ## Batata - Proteína simples pra example data do SlytheRINs 
 

@@ -33,7 +33,7 @@ A metodologia descreve a workflow padrão de estudo em formato de pipeline, onde
 
 ### Estudo G6PC1
 * **Contextualização:** []()
-* **Dados Brutos:**
+* **Dados Brutos:** []()
 * **Scripts de Análise:**[]()
 * **Resultados e Outputs:** []()
 * **Notas e Análise Biológica:** []() #Não realizada
