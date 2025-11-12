@@ -1,6 +1,8 @@
-# Formato de README como MAPA MESTRE de repositório de fluxo de pesquisa - v.0.1
+# MsC_RIN_Analysis - Fluxo de Trabalho Completo
 
-# Formato gerado pelo Gemini, organizado para utilização no repo MsC_RIN_Analysis
+* Formato de README como MAPA MESTRE de repositório de fluxo de pesquisa - v.0.1
+
+* *Formato gerado pelo Gemini, organizado para utilização no repo MsC_RIN_Analysis* 
 
 Este repositório contém a análise, ferramentas e dados para [Nome da Dissertação].
 
