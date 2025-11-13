@@ -32,11 +32,13 @@
 |   |   └── requirements.txt
 |   └── common_utils/         # Funções Python compartilhadas (ex: parsers)
 |
-├── 03_workflows-scripts/    # Workflow e scripts do Fluxo de Trabalho. 
+├── 03_workflows-scripts/     # Workflow e scripts do Fluxo de Trabalho. 
 |   |                       
-|   ├── g6pc1/    # Folder comporta workflow (formato atual explicatório - .md -; e scripts utilizados),
-|   |                       # e escreve em 04_results.
-|   ├── m6a_complex/       # Script para o M6A.
+|   ├── g6pc1/                # Folder comporta workflow (formato atual explicatório - .md -; e scripts utilizados)
+|   |   ├── *_workflow.md     # Protocolo organizado e explicado de denominada ferramenta e/ou análise.
+|   |   └── ...
+|   |                         
+|   ├── m6a_complex/          
 |   └── notebooks/            # Possibilidade ? Não sei o que por ainda
 |
 ├── 04_results_processed/   # Dados gerados. Resultados e Outputs do fluxo de trabalho
@@ -55,10 +57,22 @@
 |       ├── 01_md_trajectories/
 |       └── 02_rin_graphs/
 |
-└── 05_docs_and_papers/     # A "COLA" - Onde o Markdown brilha.
-    ├── README.md           # O MAPA MESTRE.
-    ├── methodology.md      # Descrição do pipeline (PDB -> Grafo -> Análise)
-    ├── g6pc1_study.md      # Diário de bordo da G6PC1 (o que falhou, o que funcionou)
-    └── m6a_study.md        # Diário de bordo do M6A
-
+├── 05_docs_and_papers/     # A "COLA" - Onde o Markdown brilha.
+|    ├── references/         # Diretório de ref bibliográficas. Possui um sub-diretório pra cada projeto/ferramenta
+|    |   ├── g6pc1/
+|    |   ├── HufflePlots/
+|    |   └── ...
+|    |
+|    ├── *_protocol.md      # Direcionamento detalhado - projeto específico
+|    ├── *_study.md         # Diário de pesquisa, anotações brutas - projeto específico
+|    └── ...        
+|
+├── README.md               # O MAPA MESTRE.
+├── estrutura-repo.md       # Este arquivo
+├── requirements.txt        # Configuração (caso necessária) pra uso do DVC e outros pacotes para o REPOSITÓRIO
+├── Workflow.md/jpg         # Representação visual (feito nf-core) do fluxo de trabalho geral 
+|
+|
+|
+└── ...
 ```
