@@ -1,8 +1,13 @@
 # Diário de Pesquisa (Research Log) - G6PC1 29-09-2025
 
-## Batata - Proteína simples pra example data do SlytheRINs 
+## Teste 'Batata' - Proteína simples pra example data do SlytheRINs e Estudo de Caso para MsC_RIN_Analysis
 
-Para a busca de molécula apropriada, será feita uma busca por moléculas pequenas e de cadeia simples. Para busca afunilada, o foco será na '*Glycogen Storage Disease*', e proteínas que apresentam mutações *missense* nos diversos tipos dessa doença. 
+## 1. Análise Exploratória de Dados - Glycogen Storage Disease (GSD)
+
+Para a busca de molécula apropriada, será feita uma busca por moléculas pequenas e de cadeia simples. Para busca afunilada, o foco será na '*Glycogen Storage Disease*', e proteínas que apresentam mutações *missense* nos diversos tipos dessa doença.
+
+* Utilização do software IPA da QIAGEN para Análise Exploratória, onde é feita associação entre **Tipo de GSD**, **Enzima afetada** e **Genes associados**.
+
 
 ***Tipos GSD x QIAGEN***
 
