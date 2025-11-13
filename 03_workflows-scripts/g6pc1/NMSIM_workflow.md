@@ -86,6 +86,54 @@
 
     * **1. Formato de Entrada de arquivos - Lista:**
 
+    ```python
+        # Lista de arquivos '.txt' de RMSD/RMSF separadamente
+        ## formato [{path-to-file}, {file}.txt]
+        ### RMSD
+        files_rmsd = []
+        ### Exemplo
+        files_rmsd = [
+            ('/content/exemplo_rmsdtostart.txt', 'NOMEX_WT'), #WT de 'wild-type' form (ex: '9J7V_WT')
+            ('/content/exemplo_mutação_rmsdtostart.txt', 'NOMEX_XXXX') #Indico colocar a nomenclatura simplicada da mutação (ex: '9J7V_R83C')
+        ]
+
+        ### RMSF
+        files_rmsf = []
+        ### Exemplo
+        files_rmsf = [
+            ('/content/exemplo_rmsfresidue.txt', 'NOMEX_WT'),
+            ('/content/exemplo_mutação_rmsfresidue.txt', 'NOMEX_XXXX')
+        ]
+    ```
+
+    * **2. Concatenação de `.csv` de RMSD/RMSF:**
+    ```python
+        # Bibliotecas
+        import pandas as pd
+
+        # RMSD
+        # montagem de dataframe concatenando informações de RMSD de diferentes proteínas gerado pelo NMSIM
+        rmsd = pd.read_csv(files_rmsd[0][0], sep=r'\s+', header=None, names=['Model', files_rmsd[0][1]])
+        # Merge
+        for file_name, source in files_rmsd[1:]:
+            temp_rmsd = pd.read_csv(file_name, sep=r'\s+', header=None, names=['Model', source])
+            rmsd = rmsd.merge(temp_rmsd, on='Model', how='outer')
+        # Salva df pra .csv
+        rmsd.to_csv('RMSD-[SUFIXO].csv', index=False) #Substitua por sufixo de interesse
+
+
+        # RMSF
+        # montagem de dataframe concatenando informações de RMSF de diferentes proteínas gerado pelo NMSIM
+        rmsf = pd.read_csv(files_rmsf[0][0], sep=r'\s+', header=None, names=['Model', files_rmsf[0][1]])
+        # Merge
+        for file_name, source in files_rmsf[1:]:
+            temp_rmsf = pd.read_csv(file_name, sep=r'\s+', header=None, names=['Model', source])
+            rmsf = rmsf.merge(temp_rmsf, on='Model', how='outer')
+        # Salva o df em .csv
+        rmsf.to_csv('RMSF-[SUFIXO].csv', index=False) #Substitua por sufixo de interesse
+
+
+
 
 
 
