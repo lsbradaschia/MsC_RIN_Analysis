@@ -21,5 +21,75 @@
     * **RMSD:** Arquivo de cálculo RMSD referente a trajetória, nomenclatura padrão `rmsdtostart.txt`. Cálculo de valores RMSD para cada *model* em relação a *estrutura inicial (sendo este o PDB de entrada da análise)*.
     * **RMSF:** Arquivo de cálculo RMSF referente a trajetória, nomenclatura padrão `rmsfresidue.txt`. Cálculo de Flutuação RMSF por resíduo (posição).
 
-## 3. 
+## 3. Pré-Processamento de Trajetória NMSIM - Troubleshooting
+
+* Um problema bastante comum encontrado durante as análises utilizando o `NMSIM` foi arquivos de trajetória `.pdb` gerados pelo NMSIM (`*_trajectory.pdb.gz`) **sem a numeração devida dos MODELS**. Esse erro *impede a transformação correta de todas as trajetórias em grafos pelo RING*. 
+
+* O Protocolo a seguir foi utilizado em **todas as estruturas NMSIM que apresentaram esse problema**. Em terminal (Linux ou VSCode - terminal gitbash ou Linux):
+    * **1. Unzip e Checagem de 'MODEL' do arquivo PDB de trajetória em terminal:**
+    ```bash
+        # Descompactação usando gunzip
+        gunzip -k [NOME]_trajectory.pdb.gz 
+        ## Exemplo: 
+        gunzip -k 9J7K_trajectory.pdb.gz
+
+        # Contagem de strings 'MODEL' no arquivo (pro NMSIM como utilizamos, deve ser 500)
+        grep -c "MODEL" [NOME]_trajectory.pdb
+
+        # Checagem de Numeração "MODEL"
+        ## Esse comando, por default, lhe devolve a linha onde o string "MODEL" se encontra.
+        grep "MODEL" [NOME]_trajectory.pdb
+    ```
+    * **NOTA:** O parâmetro `-k` (gunzip) cria um novo arquivo descompactado, mas mantém o antigo intacto.
+
+    * Exemplo de output de comando `grep "MODEL" *_trajectory.pdb` **quando "MODEL" NÃO está devidamente numerado**:
+    ```bash
+        grep "MODEL" 9J7V_trajectory.pdb
+        MODEL
+        MODEL
+        MODEL
+        MODEL
+        MODEL
+        MODEL
+        MODEL
+        MODEL
+        MODEL
+        MODEL
+        MODEL
+    ``` 
+    * Exemplo de output de comando `grep "MODEL" *_trajectory.pdb` **quando "MODEL" ESTÁ devidamente numerado**:
+    ```bash
+        grep "MODEL" 9J7V_trajectory.pdb
+        MODEL        1
+        MODEL        2
+        MODEL        3
+        MODEL        4
+        MODEL        5
+        MODEL        6
+        MODEL        7
+        MODEL        8
+        MODEL        9
+        MODEL       10
+    ```
+    * **2. Shell Script para Numeração Automática de string "MODEL" em arquivos PDB**
+    ```bash
+        # Comando awk para numeração
+        awk 'BEGIN{c=1} /^MODEL/ {printf "MODEL     %4d\n", c++} !/^MODEL/ {print}' [NOME]_trajectory.pdb > [NOVO_NOME].pdb
+        ## Exemplo de uso
+        awk 'BEGIN{c=1} /^MODEL/ {printf "MODEL     %4d\n", c++} !/^MODEL/ {print}' 9J7V_trajectory.pdb > 9J7V_fixed.pdb
+    ```
+    * **NOTA1:** ao nomear o novo arquivo gerado pelo comando `awk` acima, **NÃO RENOMEIE O ARQUIVO DE SAÍDA `[NOVO_NOME].pdb` COM O MESMO NOME DO ARQUIVO DE ENTRADA `[NOME]_trajectory.pdb`**. Ao fazer isso, **Perde-se os dois arquivos simultaneamente.** O arquivo original **é removido**, e o novo arquivo gerado **encontra-se vazio**. 
+
+## 4. Pré-Processamento de Dados NMSIM - Compilando RMSD/RMSF em .CSV
+
+* **Script `Python` para concatenar `RMSD/RMSF` em `.csv` para Plotagem em [**`HufflePlots`**](https://huffleplots.streamlit.app/):**
+
+    * **1. Formato de Entrada de arquivos - Lista:**
+
+
+
+
+
+
+    
 
