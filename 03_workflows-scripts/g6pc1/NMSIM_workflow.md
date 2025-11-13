@@ -133,6 +133,43 @@
         rmsf.to_csv('RMSF-[SUFIXO].csv', index=False) #Substitua por sufixo de interesse
     ```
 
+## 5. Transformação de Trajetórias em Grafos com RING 4.0
+
+* Feita a correção dos string *`MODEL`* (Etapa 3), o arquivo *corrigido* de trajetória NMSIM é usado como input para conversão de garfos utilizando a versão de terminal da ferramenta [**`RING4.0`**](https://biocomputingup.it/services/download/): 
+    * **Comando em terminal Linux - RING:**
+    ```bash
+        # Execução ferramenta RING
+        ## Cria um diretório DENTRO DO ATUAL para o output, indicado pelo $PREFIXO de entrada.
+        ./ mkdir [$PREFIXO_SAIDA]_ring
+
+        ## Execução da ferramenta (usando o .pdb numerado da Etapa 3)
+        ring -i [TRAJETORIA_NUMERADA].pdb --all_edges --all_models --out_dir [$PREFIXO_SAIDA]_ring
+    ```
+## 6. Utilitários e Troubleshooting 
+
+* **Tornando um script gerado em Windows executável em Linux:**
+    * Ao transferir scripts `.sh` de um sistema Windows para Linux, caracteres ocultos (\r) podem causar erros de execução:
+    ```bash
+        # Já no terminal, dentro do diretório com o seu arquivo executável dentro:
+        sed -i -r 's/\r$//' seuscript.sh
+
+        # Em tese, isso tira os erros de conversão de passagem de arquivo de Windows pra Linux.
+    ```
+* **Tornando executável e execução geral de scripts executáveis `.sh`**
+    ```bash
+        # No diretório onde se encontra o executável de interesse:
+        ## 1) Torne executável com chmod +x
+        chmod +x seuscript.sh
+
+        ## 2) Execute seu arquivo .sh:
+        ### DENTRO DO DIRETÓRIO CONTENDO ARQUIVOS DE ENTRADA
+        ./executável.sh argumento1 argumento2
+
+        #NOTA: Cada executável tem seu próprio grupo de argumentos (E ORDEM!!), além de REQUISITOS para que possa ser utilizado. Indico sempre abrirem e lerem o arquivo .sh para identificar o que precisa. 
+    ```
+    
+
+
 
 
 
