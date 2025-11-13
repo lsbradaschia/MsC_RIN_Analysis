@@ -32,12 +32,12 @@
 |   |   └── requirements.txt
 |   └── common_utils/         # Funções Python compartilhadas (ex: parsers)
 |
-├── 03_analysis_scripts/    # Scripts que USAM as ferramentas - PARA VERSÕES FUTURAS DE NF-CORE! 
+├── 03_workflows-scripts/    # Workflow e scripts do Fluxo de Trabalho. 
 |   |                       
-|   ├── g6pc1_workflow.py     # Script que lê de 01_data_raw, chama 02_src_tools,
+|   ├── g6pc1/    # Folder comporta workflow (formato atual explicatório - .md -; e scripts utilizados),
 |   |                       # e escreve em 04_results.
-|   ├── m6a_workflow.py       # Script para o M6A.
-|   └── notebooks/            # Jupyter/Observable para exploração.
+|   ├── m6a_complex/       # Script para o M6A.
+|   └── notebooks/            # Possibilidade ? Não sei o que por ainda
 |
 ├── 04_results_processed/   # Dados gerados. Resultados e Outputs do fluxo de trabalho
 |   |                       # Estrutura deve espelhar o fluxo.
