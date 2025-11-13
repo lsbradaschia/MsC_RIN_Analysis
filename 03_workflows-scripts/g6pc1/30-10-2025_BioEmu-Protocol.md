@@ -1,5 +1,5 @@
 # BioEmu Protocol - Versão 0.1
-# Protocolo desenvolvido e Reproduzido com G6PC1 
+# Protocolo desenvolvido e Reproduzido com G6PC1 - Ferramenta BioEmu
 
 ## Informações Gerais
 

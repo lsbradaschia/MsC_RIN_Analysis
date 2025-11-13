@@ -1,4 +1,4 @@
-# Anotações e Observações de Estudo relacionados a G6PC1
+# Diário de Pesquisa (Research Log) - G6PC1 29-09-2025
 
 ## Batata - Proteína simples pra example data do SlytheRINs 
 
