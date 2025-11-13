@@ -33,7 +33,10 @@ A metodologia descreve a workflow padrão de estudo em formato de pipeline, onde
 
 ## 3. Estudos de Caso (Aplicações)
 
-### Estudo G6PC1
+**Apenas direciona `folders` e `*-protocol.md` e `*-study.md`.**
+
+### Estudo G6PC1 
+
 * **Contextualização:** []()
 * **Dados Brutos:** []()
 * **Scripts de Análise:**[]()

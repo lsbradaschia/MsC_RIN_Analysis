@@ -2,7 +2,7 @@
 # Indica Hipótese Principal que deve ser observada e linka todos os arquivos associados ao estudo. 
 
 ## Hipótese
-(Escreva aqui o que pretende se observar no estudo com a G6PC1 de forma breve). Informações detalhadas e referências no [Link de Estudo](G6PC1_study.md)
+(Escreva aqui o que pretende se observar no estudo com a G6PC1 de forma breve). Informações detalhadas e referências no [Diário de Pesquisa](G6PC1_study.md)
 
 ## Execução de Análise - Dados Brutos e Resultados (12-11-2025) v0.1
 * **Arquivos de Input:** [``]() #link pra tabela complementar - **PENDENTE**; [``]() #diretório geral
