@@ -12,6 +12,10 @@ Este repositório contém a análise, ferramentas e dados para [Nome da Disserta
     * Mapa central do fluxo de pesquisa, direciona aos diferentes folders que compõem o projeto.
     * **Conteúdo:** Linka e aponta todos os *principais folders* ferramentas e estudos de caso associados a pesquisa central.
 
+* **`estrutura-repo.md`**:
+    * Representação de árvore de diretórios do repositório `MsC_RIN_Analysis`. Formato `ASCII tree`.
+    * **Conteúdo:** Representação visual hierárquica da estruturação de pastas/diretórios e arquivos organizados neste repositório. 
+
 * **Arquivos `*_protocol.md` (Ex: G6PC1_protocol.md):**
     * Diário de bordo (logbook) específico para um tópico.
     * **Conteúdo:** Detalha e linka *todos* os folders e arquivos associados ào tópico específico (seja uma ferramenta ou estudo de caso). **Acesse para ser direcionado a `*_study.md` e `*_workflow.md` de um tópico ou pesquisa específico.**
