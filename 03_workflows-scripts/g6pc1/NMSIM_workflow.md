@@ -131,6 +131,7 @@
             rmsf = rmsf.merge(temp_rmsf, on='Model', how='outer')
         # Salva o df em .csv
         rmsf.to_csv('RMSF-[SUFIXO].csv', index=False) #Substitua por sufixo de interesse
+    ```
 
 
 
